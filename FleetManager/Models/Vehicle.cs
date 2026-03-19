@@ -5,7 +5,7 @@ namespace FleetManager.Models;
 public class Vehicle : ReactiveObject
 {
     private string _name;
-    private string _licenseNumber;
+    private string _licenceNumber;
     private int _fuelPercentage;
     private string _status;
 
@@ -15,10 +15,10 @@ public class Vehicle : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _name, value);
     }
     
-    public string LicenseNumber
+    public string LicenceNumber
     {
-        get => _licenseNumber;
-        set => this.RaiseAndSetIfChanged(ref _licenseNumber, value);
+        get => _licenceNumber;
+        set => this.RaiseAndSetIfChanged(ref _licenceNumber, value);
     }
     
     public int FuelPercentage
