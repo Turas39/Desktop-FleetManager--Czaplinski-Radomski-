@@ -1,10 +1,30 @@
-<!-- (UserControl - widok) -->
 
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:models="clr-namespace:FleetManager.Models"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="FleetManager.Views.VehicleItemView">
-    Welcome to Avalonia!
+             x:Class="FleetManager.Views.VehicleItemView"
+             x:DataType="models:Vehicle">
+    
+    <Border BorderThickness="1" Margin="5" Padding="5">
+        <StackPanel>
+            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding LicenceNumber}"/>
+            <TextBlock Text="{Binding FuelPercentage, StringFormat='Fuel: {0}%'}"/>
+        
+        <StackPanel Orientation="Horizontal" Spacing="5">
+            <TextBlock Text="Status:" VerticalAlignment="Center"/>
+            <ComboBox SelectedItem="{Binding Status}" Width="120">
+                <ComboBoxItem Content="Available"/>
+                <ComboBoxItem Content="InRoute"/>
+                <ComboBoxItem Content="Service"/>
+            </ComboBox>
+        </StackPanel>
+        </StackPanel>
+    </Border>
+    
+    
+    
 </UserControl>

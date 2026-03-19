@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -8,7 +9,8 @@ namespace FleetManager.Services;
 
 public class JsonVehicleService : IVehicleService
 {
-    private const string VehiclesPath = "vehicles.json";
+    
+    private readonly string VehiclesPath = Path.Combine(AppContext.BaseDirectory, "Assets", "vehicles.json");
 
     public async Task<List<Vehicle>> LoadVehiclesAsync()
     {
@@ -24,5 +26,6 @@ public class JsonVehicleService : IVehicleService
         {
             return new List<Vehicle>();
         }
+        
     }
 }

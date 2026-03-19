@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using FleetManager.Models;
 using FleetManager.Services;
 
@@ -19,8 +20,12 @@ public class MainWindowViewModel : ViewModelBase
     private async void LoadVehicles()
     {
         var list = await _vehicleService.LoadVehiclesAsync();
-        
+
         foreach (var item in list)
             Vehicles.Add(item);
+           
+        
     }
+    
+    
 }
