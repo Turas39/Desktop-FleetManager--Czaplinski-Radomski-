@@ -9,6 +9,7 @@ namespace FleetManager.Services;
 
 public class JsonVehicleService : IVehicleService
 {
+    
     private readonly string VehiclesPath = Path.Combine(AppContext.BaseDirectory, "Assets", "vehicles.json");
 
     public async Task<List<Vehicle>> LoadVehiclesAsync()

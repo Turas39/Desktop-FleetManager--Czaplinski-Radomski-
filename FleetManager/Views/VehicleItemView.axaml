@@ -13,8 +13,18 @@
             <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
             <TextBlock Text="{Binding LicenceNumber}"/>
             <TextBlock Text="{Binding FuelPercentage, StringFormat='Fuel: {0}%'}"/>
-            <TextBlock Text="{Binding Status}"/>
+        
+        <StackPanel Orientation="Horizontal" Spacing="5">
+            <TextBlock Text="Status:" VerticalAlignment="Center"/>
+            <ComboBox SelectedItem="{Binding Status}" Width="120">
+                <ComboBoxItem Content="Available"/>
+                <ComboBoxItem Content="InRoute"/>
+                <ComboBoxItem Content="Service"/>
+            </ComboBox>
+        </StackPanel>
         </StackPanel>
     </Border>
+    
+    
     
 </UserControl>
