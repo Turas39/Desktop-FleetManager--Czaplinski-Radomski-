@@ -1,5 +1,34 @@
 [
   {
-    
+    "Name": "Truck 1",
+    "Status": "Available",
+    "FuelLevel": 80,              
+    "CanSendToRoute": true,         
+    "CanRefuel": true,            
+    "History": []                  
+  },
+  {
+    "Name": "Truck 2",
+    "Status": "InRoute",
+    "FuelLevel": 40,
+    "CanSendToRoute": false,
+    "CanRefuel": false,
+    "History": []
+  },
+  {
+    "Name": "Van 1",
+    "Status": "Service",
+    "FuelLevel": 60,
+    "CanSendToRoute": false,
+    "CanRefuel": true,
+    "History": []
+  },
+  {
+    "Name": "Truck 3",
+    "Status": "Available",
+    "FuelLevel": 15,
+    "CanSendToRoute": false,
+    "CanRefuel": true,
+    "History": []
   }
 ]
