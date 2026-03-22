@@ -17,9 +17,9 @@
         <StackPanel Orientation="Horizontal" Spacing="5">
             <TextBlock Text="Status:" VerticalAlignment="Center"/>
             <ComboBox SelectedItem="{Binding Status}" Width="120">
-                <ComboBoxItem Content="Available"/>
-                <ComboBoxItem Content="InRoute"/>
-                <ComboBoxItem Content="Service"/>
+                <x:String>Available</x:String>
+                <x:String>InRoute</x:String>
+                <x:String>Service</x:String>
             </ComboBox>
         </StackPanel>
         </StackPanel>
