@@ -29,18 +29,4 @@ public class JsonVehicleService : IVehicleService
         
     }
     
-    public async Task SaveVehiclesAsync(List<Vehicle> vehicles)
-    {
-        try
-        {
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            var json = JsonSerializer.Serialize(vehicles, options);
-            await File.WriteAllTextAsync(VehiclesPath, json);
-        }
-        catch (Exception ex)
-        {
-            // Tutaj można dodać logowanie błędów
-            System.Diagnostics.Debug.WriteLine($"Błąd zapisu: {ex.Message}");
-        }
-    }
 }

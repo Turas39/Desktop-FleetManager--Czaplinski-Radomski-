@@ -13,20 +13,12 @@ public class MainWindowViewModel : ViewModelBase
     public ObservableCollection<Vehicle> Vehicles { get; set; } = new ObservableCollection<Vehicle>();
     
     private readonly IVehicleService _vehicleService;
-    
-    public ReactiveCommand<Unit, Unit> SaveCommand { get; }
 
     public MainWindowViewModel()
     {
         _vehicleService = new JsonVehicleService();
         
-        SaveCommand = ReactiveCommand.CreateFromTask(async () =>
-        {
-            await _vehicleService.SaveVehiclesAsync(Vehicles.ToList());
-        });
-        
         LoadVehicles();
-        
         
     }
 

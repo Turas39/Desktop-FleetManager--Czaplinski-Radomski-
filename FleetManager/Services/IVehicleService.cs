@@ -7,5 +7,4 @@ namespace FleetManager.Services;
 public interface IVehicleService
 {
     Task<List<Vehicle>> LoadVehiclesAsync();
-    Task SaveVehiclesAsync(List<Vehicle> vehicles);
 }
