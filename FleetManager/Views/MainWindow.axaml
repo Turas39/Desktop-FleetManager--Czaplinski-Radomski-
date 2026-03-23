@@ -27,12 +27,6 @@
                 </StackPanel>
         </ScrollViewer>
                 
-                <Button Content="Zapisz zmiany statusu" 
-                        Command="{Binding SaveCommand}"
-                        HorizontalAlignment="Center" 
-                        Margin="10"
-                        Padding="20,10"/>
-                
         </StackPanel>
 
 </Window>
