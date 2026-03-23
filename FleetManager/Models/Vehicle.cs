@@ -2,12 +2,18 @@ using ReactiveUI;
 
 namespace FleetManager.Models;
 
+public enum VehicleStatus
+{
+    Available,
+    InRoute,
+    Service
+}
+
 public class Vehicle : ReactiveObject
 {
     private string _name;
-    private string _licenceNumber;
-    private int _fuelPercentage;
-    private string _status;
+    private double _fuelLevel;
+    private VehicleStatus _status;
 
     public string Name
     {
@@ -15,19 +21,14 @@ public class Vehicle : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _name, value);
     }
     
-    public string LicenceNumber
+    
+    public double FuelLevel
     {
-        get => _licenceNumber;
-        set => this.RaiseAndSetIfChanged(ref _licenceNumber, value);
+        get => _fuelLevel;
+        set => this.RaiseAndSetIfChanged(ref _fuelLevel, value);
     }
     
-    public int FuelPercentage
-    {
-        get => _fuelPercentage;
-        set => this.RaiseAndSetIfChanged(ref _fuelPercentage, value);
-    }
-    
-    public string Status
+    public VehicleStatus Status
     {
         get => _status;
         set => this.RaiseAndSetIfChanged(ref _status, value);

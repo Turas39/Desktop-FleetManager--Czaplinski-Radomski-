@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using FleetManager.Models;
 
@@ -20,11 +21,16 @@ public class JsonVehicleService : IVehicleService
                 return new List<Vehicle>();
             
             var json = await File.ReadAllTextAsync(VehiclesPath);
-            return JsonSerializer.Deserialize<List<Vehicle>>(json) ?? new List<Vehicle>();
+            return JsonSerializer.Deserialize<List<Vehicle>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                Converters = { new JsonStringEnumConverter() }
+            }) ?? new List<Vehicle>();
         }
         catch
         {
             return new List<Vehicle>();
+            
         }
         
     }

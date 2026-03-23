@@ -4,27 +4,38 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:models="clr-namespace:FleetManager.Models"
+             xmlns:vm="clr-namespace:FleetManager.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="FleetManager.Views.VehicleItemView"
-             x:DataType="models:Vehicle">
+             x:DataType="vm:VehicleItemViewModel">
     
-    <Border BorderThickness="1" Margin="5" Padding="5">
-        <StackPanel>
-            <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
-            <TextBlock Text="{Binding LicenceNumber}"/>
-            <TextBlock Text="{Binding FuelPercentage, StringFormat='Fuel: {0}%'}"/>
-        
-        <StackPanel Orientation="Horizontal" Spacing="5">
-            <TextBlock Text="Status:" VerticalAlignment="Center"/>
-            <ComboBox SelectedItem="{Binding Status}" Width="120">
-                <x:String>Available</x:String>
-                <x:String>InRoute</x:String>
-                <x:String>Service</x:String>
-            </ComboBox>
+    <Border Padding="12"
+            Margin="6"
+            BorderBrush="Gray"
+            BorderThickness="1"
+            CornerRadius="6">
+
+        <StackPanel Spacing="6">
+
+            <TextBlock Text="{Binding Model.Name}" FontSize="16" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Model.FuelLevel, StringFormat='Fuel: {0}%'}"/>
+            <TextBlock Text="{Binding Model.Status}"/>
+
+            <StackPanel Orientation="Horizontal" Spacing="5">
+                <Button Content="Available"
+                        Command="{Binding ChangeStatusCommand}"
+                        CommandParameter="{Binding Source={x:Static models:VehicleStatus.Available}}"/>
+                <Button Content="InRoute"
+                        Command="{Binding ChangeStatusCommand}"
+                        CommandParameter="{Binding Source={x:Static models:VehicleStatus.InRoute}}"/>
+                <Button Content="Service"
+                        Command="{Binding ChangeStatusCommand}"
+                        CommandParameter="{Binding Source={x:Static models:VehicleStatus.Service}}"/>
+
+            </StackPanel>
+
         </StackPanel>
-        </StackPanel>
+
     </Border>
-    
-    
     
 </UserControl>
