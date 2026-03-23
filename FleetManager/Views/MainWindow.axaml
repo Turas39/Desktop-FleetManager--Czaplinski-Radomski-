@@ -15,18 +15,14 @@
         </Window.DataContext>
 
         <StackPanel>
-        <ScrollViewer>
-                <StackPanel>
-                        <ItemsControl ItemsSource="{Binding Vehicles}">
-                                <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                                <views:VehicleItemView DataContext="{Binding}"/>
-                                        </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                </StackPanel>
-        </ScrollViewer>
-                
+                <ItemsControl ItemsSource="{Binding Vehicles}">
+                        <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                        <views:VehicleItemView DataContext="{Binding}"/>
+                                </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                </ItemsControl>
         </StackPanel>
+
 
 </Window>

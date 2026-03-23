@@ -1,20 +1,22 @@
 [
   {
-    "Name": "Truck A",
-    "LicenceNumber": "WA12345",
-    "FuelPercentage": 80,
+    "Name": "Truck Alpha",
+    "FuelLevel": 75,
     "Status": "Available"
   },
   {
-    "Name": "Van B",
-    "LicenceNumber": "WB54321",
-    "FuelPercentage": 50,
+    "Name": "Van Beta",
+    "FuelLevel": 40,
     "Status": "InRoute"
   },
   {
-    "Name": "Truck C",
-    "LicenceNumber": "WC67890",
-    "FuelPercentage": 30,
+    "Name": "Car Gamma",
+    "FuelLevel": 10,
     "Status": "Service"
+  },
+  {
+    "Name": "Truck Delta",
+    "FuelLevel": 90,
+    "Status": "Available"
   }
 ]
