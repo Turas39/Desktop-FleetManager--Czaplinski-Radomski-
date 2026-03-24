@@ -2,37 +2,31 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using FleetManager.Models;
 
 namespace FleetManager.Services;
 
-public class JsonVehicleService : IVehicleService
+public class JsonVehicleService
 {
-    
-    private readonly string VehiclesPath = Path.Combine(AppContext.BaseDirectory, "Assets", "vehicles.json");
+    private readonly string _filePath = "Assets/vehicles.json";
 
-    public async Task<List<Vehicle>> LoadVehiclesAsync()
+    public async Task<List<Vehicle>> GetVehiclesAsync()
     {
         try
         {
-            if (!File.Exists(VehiclesPath))
-                return new List<Vehicle>();
-            
-            var json = await File.ReadAllTextAsync(VehiclesPath);
-            return JsonSerializer.Deserialize<List<Vehicle>>(json, new JsonSerializerOptions
+            if (!File.Exists(_filePath))
             {
-                PropertyNameCaseInsensitive = true,
-                Converters = { new JsonStringEnumConverter() }
-            }) ?? new List<Vehicle>();
+                return new List<Vehicle>();
+            }
+
+            string json = await File.ReadAllTextAsync(_filePath);
+            var vehicles = JsonSerializer.Deserialize<List<Vehicle>>(json);
+            return vehicles ?? new List<Vehicle>();
         }
         catch
         {
             return new List<Vehicle>();
-            
         }
-        
     }
-    
 }
