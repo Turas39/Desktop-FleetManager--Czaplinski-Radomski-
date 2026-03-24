@@ -6,17 +6,18 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
+    private readonly IVehicleService _vehicleService;
     public ObservableCollection<VehicleItemViewModel> Vehicles { get; } = new();
 
     public MainWindowViewModel()
     {
+        _vehicleService = new JsonVehicleService();
         _ = LoadDataAsync();
     }
 
     private async Task LoadDataAsync()
     {
-        var service = new JsonVehicleService();
-        var data = await service.GetVehiclesAsync();
+        var data = await _vehicleService.LoadVehiclesAsync();
 
         foreach (var vehicle in data)
         {

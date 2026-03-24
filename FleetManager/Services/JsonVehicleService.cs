@@ -7,11 +7,11 @@ using FleetManager.Models;
 
 namespace FleetManager.Services;
 
-public class JsonVehicleService
+public class JsonVehicleService : IVehicleService
 {
     private readonly string _filePath = "Assets/vehicles.json";
 
-    public async Task<List<Vehicle>> GetVehiclesAsync()
+    public async Task<List<Vehicle>> LoadVehiclesAsync()
     {
         try
         {

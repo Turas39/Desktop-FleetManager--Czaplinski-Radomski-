@@ -1,4 +1,3 @@
-
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,19 +18,23 @@
 
             <TextBlock Text="{Binding Model.Name}" FontSize="16" FontWeight="Bold"/>
             <TextBlock Text="{Binding Model.FuelLevel, StringFormat='Fuel: {0}%'}"/>
-            <TextBlock Text="{Binding Model.Status}"/>
+            <TextBlock Text="{Binding Model.Status, StringFormat='Status: {0}'}"/>
 
             <StackPanel Orientation="Horizontal" Spacing="5">
                 <Button Content="Available"
                         Command="{Binding ChangeStatusCommand}"
-                        CommandParameter="{Binding Source={x:Static models:VehicleStatus.Available}}"/>
+                        CommandParameter="{x:Static models:VehicleStatus.Available}"/>
                 <Button Content="InRoute"
                         Command="{Binding ChangeStatusCommand}"
-                        CommandParameter="{Binding Source={x:Static models:VehicleStatus.InRoute}}"/>
+                        CommandParameter="{x:Static models:VehicleStatus.InRoute}"/>
                 <Button Content="Service"
                         Command="{Binding ChangeStatusCommand}"
-                        CommandParameter="{Binding Source={x:Static models:VehicleStatus.Service}}"/>
-
+                        CommandParameter="{x:Static models:VehicleStatus.Service}"/>
+                
+                <Button Content="Refuel" 
+                        Command="{Binding RefuelCommand}"
+                        Background="SteelBlue" 
+                        Foreground="White"/>
             </StackPanel>
 
         </StackPanel>

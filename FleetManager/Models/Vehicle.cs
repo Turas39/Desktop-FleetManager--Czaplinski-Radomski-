@@ -1,7 +1,9 @@
+using System.Text.Json.Serialization;
 using ReactiveUI;
 
 namespace FleetManager.Models;
 
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum VehicleStatus
 {
     Available,
@@ -20,7 +22,6 @@ public class Vehicle : ReactiveObject
         get => _name;
         set => this.RaiseAndSetIfChanged(ref _name, value);
     }
-    
     
     public double FuelLevel
     {
