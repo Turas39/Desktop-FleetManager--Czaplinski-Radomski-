@@ -16,7 +16,6 @@
 
        
         <StackPanel>
-              <Button/>   
                 <ItemsControl ItemsSource="{Binding Vehicles}">
                         <ItemsControl.ItemTemplate>
                                 <DataTemplate>
